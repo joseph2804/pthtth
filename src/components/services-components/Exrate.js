@@ -26,33 +26,40 @@ function Exrate(props) {
     });
 
     return (
-        <div>
-            <h1>Thông tin tỉ giá</h1>
-            <div className="row justify-content-center h-300" style={{ maxHeight: '300px' }, { overflowY: 'scroll' }}>
-                <div className="col-10 " >
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Mã</th>
-                                <th>Tên Đồng Tiền</th>
-                                <th>Mua Vào</th>
-                                <th>Chuyển Khoản</th>
-                                <th>Bán Ra</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {listExrateElements}
-                        </tbody>
-                    </table>
+        <div className="row justify-content-center">
+            <div className="col-12">
+                <h1 className="text-center mt-5 mb-3">Thông tin tỉ giá</h1>
+            </div>
+            <div className="col-8">
+                <div className="row justify-content-center h-400" style={{ maxHeight: '300px' }, { overflowY: 'scroll' }}>
+                    <div className="col-8 " >
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Mã</th>
+                                    <th>Tên Đồng Tiền</th>
+                                    <th>Mua Vào</th>
+                                    <th>Chuyển Khoản</th>
+                                    <th>Bán Ra</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {listExrateElements}
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
 
             </div>
-            <h5>
-                Nguồn: {sourceName}
-            </h5>
-            <h5>
-                Thời Điểm: {time}
-            </h5>
+            <div className="col-12 mt-5">
+                <h5 className="text-center">
+                    Nguồn: {sourceName}
+                </h5>
+                <h5 className="text-center">
+                    Thời Điểm: {time}
+                </h5>
+            </div>
         </div>
     );
 }

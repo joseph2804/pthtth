@@ -1,8 +1,11 @@
 
-import {Component} from 'react';
+import { Component } from 'react';
 import Exrate from "./services-components/Exrate";
 import axios from 'axios';
 import Weather from './services-components/Weather';
+import Football from './services-components/Football';
+import { Tab } from 'bootstrap';
+import { Tabs } from 'react-bootstrap';
 
 class Home extends Component {
     constructor(props) {
@@ -23,7 +26,7 @@ class Home extends Component {
                 isNetwork: false
             })
         }
-        
+
     }
 
     fetchData = () => {
@@ -43,24 +46,21 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="container pt-5">
-                <div className="row no-gutter">
-                    <div className="col-6 text-center">
+
+            <div className="container">
+                <Tabs defaultActiveKey="exchange" id="uncontrolled-tab-example">
+                    <Tab eventKey="exchange" title="Tỉ giá">
                         <Exrate bankData = {this.state.bankData}/>
-                    </div>
-                    <div className="col-6 text-center">
-                        <Weather/>
-                </div>
-                    <div className="col-6 text-center">
-                        Football
-                </div>
-                    <div className="col-6 text-center">
-                        Chat box
-                </div>
-                </div>
+                    </Tab>
+                    <Tab eventKey="weather" title="Thời tiết">
+                        <Weather />
+                    </Tab>
+                    <Tab eventKey="football" title="Bóng đá">
+                        <Football />
+                    </Tab>
+                </Tabs>
 
             </div>
-
         );
     }
 

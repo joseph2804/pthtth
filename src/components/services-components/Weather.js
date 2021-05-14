@@ -47,52 +47,52 @@ function Weather() {
 
     return (
         <div>
-            <h1>Thông tin thời tiết</h1>
-            <div className="row justify-content-center">
-                <div className="col-6">
+            <h1 className="text-center mt-5">Thông tin thời tiết</h1>
+            <div className="row justify-content-center mt-3">
+                <div className="col-3 ">
                     <div className="form-group">
-                      <label for="">Chọn khu vực</label>
+                    <h5 className="text-center">Chọn khu vực</h5>
                       <select className="form-control" name="" id="" value={id} onChange={(event) => setId(event.target.value)}>
                         {listCityName}
                       </select>
                     </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-6">
-                    <div className="form-group">
-                      <label for="">Nhiệt độ:</label>
+            <div className="row justify-content-center mt-5">
+                <div className="col-3">
+                    <div className="form-group text-center">
+                      <label >Nhiệt độ:</label>
                       <span> {temp}℃</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Độ ẩm:</label>
-                      <sapn> {humidity}%</sapn>
+                    <div className="form-group text-center">
+                      <label >Độ ẩm:</label>
+                      <span> {humidity}%</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Nhiệt độ thấp nhất:</label>
-                      <sapn> {min}℃</sapn>
+                    <div className="form-group text-center">
+                      <label >Nhiệt độ thấp nhất:</label>
+                      <span> {min}℃</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Gió giật:</label>
+                    <div className="form-group text-center">
+                      <label >Gió giật:</label>
                       <span> {gust} m/s</span>
                     </div>
                 </div>
-                <div className="col-6">
-                    <div className="form-group">
-                      <label for="">Tốc độ gió:</label>
+                <div className="col-3">
+                    <div className="form-group text-center">
+                      <label >Tốc độ gió:</label>
                       <span> {speed} m/s</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Tầm nhìn:</label>
-                      <sapn> {visible} km</sapn>
+                    <div className="form-group text-center">
+                      <label >Tầm nhìn:</label>
+                      <span> {visible} km</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Nhiệt độ cao nhất:</label>
-                      <sapn> {max}℃</sapn>
+                    <div className="form-group text-center">
+                      <label >Nhiệt độ cao nhất:</label>
+                      <span> {max}℃</span>
                     </div>
-                    <div className="form-group">
-                      <label for="">Nhìn chung:</label>
-                      <sapn> {description}</sapn>
+                    <div className="form-group text-center">
+                      <label >Nhìn chung:</label>
+                      <span> {description}</span>
                     </div>
                 </div>
             </div>
