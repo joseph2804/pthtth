@@ -35,7 +35,7 @@ class Home extends Component {
                 'Content-Type': 'application/json'
             }
         }
-        axios.get(`https://api.factmaven.com/xml-to-json?xml=https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx?b=1`, config)
+        axios.get(`http://localhost:61320/api/home/resultExrate`, config)
             .then(res => {
                 localStorage.setItem('bank', JSON.stringify(res.data));
                 this.setState({

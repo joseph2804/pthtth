@@ -9,18 +9,14 @@ function Football() {
     let dateFrom = new Date();
     dateFrom.setDate(dateFrom.getDate() - 7);
     let dateTo = new Date();
-    dateTo.setDate(dateTo.getDate() + 7);
+    dateTo.setDate(dateTo.getDate() + 13);
     let dateStringFrom = dateFrom.toISOString().split('T')[0];
     let dateStringTo = dateTo.toISOString().split('T')[0];
     let dataFootball;
-    let config = {
-        headers: {
-            'X-Auth-Token': '006716ee48814af19d909b9f1271d1ec'
-        }
-    }
+    
     var listResultElements;
     useEffect(() => {
-        axios.get(`https://api.football-data.org/v2/competitions/${id}/matches?dateFrom=${dateStringFrom}&dateTo=${dateStringTo}`, config)
+        axios.get(`http://localhost:61320/api/home/resultFootball?id=${id}&dateFrom=${dateStringFrom}&dateTo=${dateStringTo}`)
             .then(res => {
                 dataFootball = res.data;
                 for (let x in dataFootball) {
@@ -29,7 +25,7 @@ function Football() {
                     }
                 }
             })
-    })
+    },[id]);
 
     data.sort((a, b) => {
         if (a.name > b.name)
@@ -47,7 +43,7 @@ function Football() {
              <td>{item.score.fullTime.homeTeam} - {item.score.fullTime.awayTeam}</td>
              <td>{item.awayTeam.name}</td>
              <td>{item.utcDate} </td>
-             <td>{item.season.currentMatchday}</td>
+             <td>{id == 'CL'?item.stage: item.season.currentMatchday}</td>
          </tr>
     })
 
@@ -65,7 +61,7 @@ function Football() {
                 </div>
             </div>
             <div className="row justify-content-center h-400" style={{ maxHeight: '400px' }, { overflowY: 'scroll' }}>
-                <div className="col-10 " >
+                <div className="col-8 " >
                     <table className="table">
                         <thead>
                             <tr>
@@ -73,7 +69,7 @@ function Football() {
                                 <th>Tỉ Số</th>
                                 <th>Đội khách</th>
                                 <th>Thời Gian (UTC)</th>
-                                <th>Vòng</th>
+                                <th>{id == 'CL'?'Trận': 'Vòng' }</th>
                             </tr>
                         </thead>
                         <tbody>
