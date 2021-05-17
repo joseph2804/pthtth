@@ -21,6 +21,7 @@ function Football() {
                 dataFootball = res.data;
                 for (let x in dataFootball) {
                     if (x == 'matches') {
+                        //localStorage.setItem('football', JSON.stringify(dataFootball[x]));
                         setMatches(dataFootball[x]);
                     }
                 }

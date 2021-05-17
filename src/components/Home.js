@@ -35,13 +35,22 @@ class Home extends Component {
                 'Content-Type': 'application/json'
             }
         }
-        axios.get(`http://localhost:61320/api/home/resultExrate`, config)
-            .then(res => {
-                localStorage.setItem('bank', JSON.stringify(res.data));
-                this.setState({
-                    bankData: res.data
+        let bank = JSON.parse(sessionStorage.getItem('bank') || '{}');
+        if (bank && Object.keys(bank).length === 0) {
+            axios.get(`http://localhost:61320/api/home/resultExrate`, config)
+                .then(res => {
+                    sessionStorage.setItem('bank', JSON.stringify(res.data));
+                    this.setState({
+                        bankData: res.data
+                    })
                 })
+        }
+        else {
+            this.setState({
+                bankData: bank
             })
+        }
+
     }
 
     render() {
@@ -50,7 +59,7 @@ class Home extends Component {
             <div className="container">
                 <Tabs defaultActiveKey="exchange" id="uncontrolled-tab-example">
                     <Tab eventKey="exchange" title="Tỉ giá">
-                        <Exrate bankData = {this.state.bankData}/>
+                        <Exrate bankData={this.state.bankData} />
                     </Tab>
                     <Tab eventKey="weather" title="Thời tiết">
                         <Weather />
