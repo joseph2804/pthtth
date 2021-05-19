@@ -82,3 +82,8 @@
 .h-400 {
   max-height: 400px;
 }
+.chat-bot {
+  position: absolute;
+  bottom: 50px;
+  z-index: 5;
+}

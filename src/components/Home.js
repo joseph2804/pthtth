@@ -68,7 +68,7 @@ class Home extends Component {
                         <Football />
                     </Tab>
                 </Tabs>
-
+               
             </div>
         );
     }
