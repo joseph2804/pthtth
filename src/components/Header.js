@@ -16,13 +16,7 @@ function Header() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Tra Cứu Thông Tin
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <Link to="/dashboard" className="dropdown-item">Phạm Hải Đường</Link>
-                                <Link to="/dashboard1" className="dropdown-item">Đặng Duy Hiệp</Link>
-                            </div>
+                        <Link to="/login" className="dropdown-item">Tra cứu thông tin</Link>
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0">

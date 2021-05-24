@@ -16,7 +16,7 @@ function Football() {
     
     var listResultElements;
     useEffect(() => {
-        axios.get(`http://localhost:61320/api/home/resultFootball?id=${id}&dateFrom=${dateStringFrom}&dateTo=${dateStringTo}`)
+        axios.get(`http://localhost:61320/api/home/resultFootball?id=${id}&dateFrom=2021-05-15&dateTo=2021-05-30`)
             .then(res => {
                 dataFootball = res.data;
                 for (let x in dataFootball) {

@@ -36,6 +36,7 @@ function Weather() {
 				}
 			})
 	}, [id]);
+	
 	data.sort((x, y) => {
 		if (x.name > y.name)
 			return 1;

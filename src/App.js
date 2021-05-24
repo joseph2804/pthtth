@@ -14,6 +14,7 @@ import InfoDuong from './components/InfoDuong';
 import InfoHiep from './components/InfoHiep';
 import Dashboard1 from './components/Dashboard1';
 import { Component } from 'react';
+import Login from './components/Login';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +26,9 @@ class App extends Component {
         <Switch>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/dashboard1">
             <Dashboard1 />
