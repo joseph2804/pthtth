@@ -13,7 +13,7 @@ function Football() {
     let dateStringFrom = dateFrom.toISOString().split('T')[0];
     let dateStringTo = dateTo.toISOString().split('T')[0];
     let dataFootball;
-    
+
     var listResultElements;
     useEffect(() => {
         axios.get(`http://localhost:61320/api/home/resultFootball?id=${id}&dateFrom=2021-05-15&dateTo=2021-05-30`)
@@ -25,8 +25,12 @@ function Football() {
                         setMatches(dataFootball[x]);
                     }
                 }
+                
             })
-    },[id]);
+            return function cleanup() {
+                    
+            };
+    }, [id]);
 
     data.sort((a, b) => {
         if (a.name > b.name)
@@ -40,12 +44,12 @@ function Football() {
 
     listResultElements = listMatches.map((item, index) => {
         return <tr key={index}>
-             <td>{item.homeTeam.name}</td>
-             <td>{item.score.fullTime.homeTeam} - {item.score.fullTime.awayTeam}</td>
-             <td>{item.awayTeam.name}</td>
-             <td>{item.utcDate} </td>
-             <td>{id == 'CL'?item.stage: item.season.currentMatchday}</td>
-         </tr>
+            <td>{item.homeTeam.name}</td>
+            <td>{item.score.fullTime.homeTeam} - {item.score.fullTime.awayTeam}</td>
+            <td>{item.awayTeam.name}</td>
+            <td>{item.utcDate} </td>
+            <td>{id == 'CL' ? item.stage : item.season.currentMatchday}</td>
+        </tr>
     })
 
     return (
@@ -70,7 +74,7 @@ function Football() {
                                 <th>Tỉ Số</th>
                                 <th>Đội khách</th>
                                 <th>Thời Gian (UTC)</th>
-                                <th>{id == 'CL'?'Trận': 'Vòng' }</th>
+                                <th>{id == 'CL' ? 'Trận' : 'Vòng'}</th>
                             </tr>
                         </thead>
                         <tbody>

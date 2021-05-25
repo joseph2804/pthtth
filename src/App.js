@@ -18,20 +18,34 @@ import Login from './components/Login';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      logined: false,
+      code: 0
+    }
+  }
+  receive = (val) => {
+    this.setState({
+      logined : val
+    });
+  }
+  receiveCode = (val) => {
+    this.setState({
+      code: val
+    })
   }
   render() {
     return (
       <Router>
-        <Header></Header>
+        <Header logined = {this.state.logined} receive = {this.receive} ></Header>
         <Switch>
           <Route path="/dashboard">
-            <Dashboard />
+            <Dashboard logined = {this.state.logined} code = {this.state.code}/>
           </Route>
           <Route path="/login">
-            <Login />
+            <Login logined = {this.state.logined} receive = {this.receive} receiveCode = {this.receiveCode} code = {this.state.code}/>
           </Route>
           <Route path="/dashboard1">
-            <Dashboard1 />
+            <Dashboard1 logined = {this.state.logined} code = {this.state.code}/>
           </Route>
           <Route path="/">
             <Home />

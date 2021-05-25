@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react";
 import { Redirect, useHistory } from "react-router";
 
-function Login() {
+function Login(props) {
     const[code, setCode] = useState('');
     const[pass, setPass] = useState('');
     const history = useHistory();
+    if(props.logined == true) {
+        if(props.code == 16033971) {
+            history.push('/dashboard');
+        }
+        if(props.code == 16034681) {
+            history.push('/dashboard1');
+        }
+    }
     function login() {
         if(code == '16033971' && pass == 'duong') {
-             history.push('/dashboard');
+            history.push('/dashboard');
+            props.receiveCode(parseInt(code));
+            props.receive(true);
+        }
+        if(code == '16034681' && pass == 'occho') {
+            history.push('/dashboard1');
+            props.receiveCode(parseInt(code));
+            props.receive(true);
         }
     }
     return (
